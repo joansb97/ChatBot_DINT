@@ -6,66 +6,79 @@
         xmlns:local="clr-namespace:ChatBot_DINT"
         mc:Ignorable="d"
         Title="ChatBot" Height="450" Width="800">
+    <Window.CommandBindings>
+        <CommandBinding Command="local:CustomCommands.nuevaConversacion" Executed="CommandBindingNuevaConver_Executed" CanExecute="CommandBindingNuevaConver_CanExecute"/>
+        <CommandBinding Command="local:CustomCommands.guardarConversacion" Executed="CommandBindingGuardarConver_Executed" CanExecute="CommandBindingGuardarConver_CanExecute"/>
+        <CommandBinding Command="local:CustomCommands.salir" Executed="CommandBindingSalir_Executed"/>
+        <CommandBinding Command="local:CustomCommands.configuracion" Executed="CommandBindingConfiguracion_Executed"/>
+        <CommandBinding Command="local:CustomCommands.comprobarConexion" Executed="CommandBindingComprobarCon_Executed"/>
+        <CommandBinding Command="local:CustomCommands.enviar" Executed="CommandBindingEnviar_Executed" CanExecute="CommandBindingEnviar_CanExecute"/>
+    </Window.CommandBindings>
+    <Window.Resources>
+        <Style TargetType="Image" x:Key="toolbarImage">
+            <Setter Property="Width" Value="20"/>
+        </Style>
+    </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Archivo">
-                <MenuItem Header="_Nueva Conversacion">
+                <MenuItem Header="_Nueva Conversacion" InputGestureText="Ctrl+N" Command="local:CustomCommands.nuevaConversacion">
                     <MenuItem.Icon>
-                        <Image Source="new.png"/>
+                        <Image Source="Recursos/new.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="_Guardar Conversacion...">
+                <MenuItem Header="_Guardar Conversacion..." InputGestureText="Ctrl+G" Command="local:CustomCommands.guardarConversacion">
                     <MenuItem.Icon>
-                        <Image Source="save.png"/>
+                        <Image Source="Recursos/save.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="_Salir">
+                <MenuItem Header="_Salir" InputGestureText="Ctrl+S" Command="local:CustomCommands.salir">
                     <MenuItem.Icon>
-                        <Image Source="exit.ico"/>
+                        <Image Source="Recursos/exit.ico"/>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Header="_Herramientas">
+            <MenuItem Header="_Herramientas" InputGestureText="Ctrl+H" Command="local:CustomCommands.configuracion">
                 <MenuItem Header="_Configuracion">
                     <MenuItem.Icon>
-                        <Image Source="config.ico"/>
+                        <Image Source="Recursos/config.ico"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="C_omprobar conexion">
+                <MenuItem Header="C_omprobar conexion" InputGestureText="Ctrl+O" Command="local:CustomCommands.comprobarConexion">
                     <MenuItem.Icon>
-                        <Image Source="check.png"/>
+                        <Image Source="Recursos/check.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
         </Menu>
         <ToolBar DockPanel.Dock="Top">
-            <Button>
-                <Image Source="new.png"/>
+            <Button Command="local:CustomCommands.nuevaConversacion">
+                <Image Source="Recursos/new.png" Style="{StaticResource toolbarImage}"/>
             </Button>
-            <Button>
-                <Image Source="save.png"/>
-            </Button>
-            <Separator/>
-            <Button>
-                <Image Source="config.ico"/>
-            </Button>
-            <Button>
-                <Image Source="check.png"/>
+            <Button Command="local:CustomCommands.guardarConversacion">
+                <Image Source="Recursos/save.png" Style="{StaticResource toolbarImage}"/>
             </Button>
             <Separator/>
-            <Button>
-                <Image Source="exit.ico"/>
+            <Button Command="local:CustomCommands.configuracion">
+                <Image Source="Recursos/config.ico" Style="{StaticResource toolbarImage}"/>
+            </Button>
+            <Button Command="local:CustomCommands.comprobarConexion">
+                <Image Source="Recursos/check.png" Style="{StaticResource toolbarImage}"/>
+            </Button>
+            <Separator/>
+            <Button Command="local:CustomCommands.salir">
+                <Image Source="Recursos/exit.ico" Style="{StaticResource toolbarImage}"/>
             </Button>
         </ToolBar>
         <DockPanel DockPanel.Dock="Bottom">
-            <Button DockPanel.Dock="Right">
-                <Image Source="send.png"/>
+            <Button DockPanel.Dock="Right" Command="local:CustomCommands.enviar">
+                <Image Source="Recursos/send.png"/>
             </Button>
             <Border>
                 <TextBox x:Name="mensajeTextBox"/>
             </Border>
         </DockPanel>
-        <ItemsControl>
+        <ItemsControl x:Name="chatListBox">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel></StackPanel>
