@@ -1,0 +1,52 @@
+﻿<Window x:Class="ChatBot_DINT.Configuracion"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatBot_DINT"
+        mc:Ignorable="d"
+        Title="Configuracion" Height="300" Width="300">
+    <Window.Resources>
+        <Style TargetType="TextBlock" x:Key="configuracionTextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="ComboBox" x:Key="configuracionComboBox">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="175"/>
+        </Style>
+        <Style TargetType="Button" x:Key="configuracionButton">
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Width" Value="60"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="15"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Color de fondo" Style="{StaticResource configuracionTextBlock}"/>
+        <ComboBox Name="coloresFondo_ComboBox" Grid.Column="1" Grid.Row="0" SelectedValue="{Binding Path=colorFondo}" SelectedValuePath="Name" Style="{StaticResource configuracionComboBox}"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Color del usuario" Style="{StaticResource configuracionTextBlock}"/>
+        <ComboBox Name="coloresUsuario_ComboBox" Grid.Column="1" Grid.Row="1" SelectedValue="{Binding Path=colorUsuario}" SelectedValuePath="Name" Style="{StaticResource configuracionComboBox}"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Color del robot" Style="{StaticResource configuracionTextBlock}"/>
+        <ComboBox Name="coloresRobot_ComboBox" Grid.Column="1" Grid.Row="2" SelectedValue="{Binding Path=colorRobot}" SelectedValuePath="Name" Style="{StaticResource configuracionComboBox}"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="Sexo del usuario" Style="{StaticResource configuracionTextBlock}"/>
+        <ComboBox Name="sexo_ComboBox" Grid.Column="1" Grid.Row="3" SelectedValue="{Binding Path=sexoUsuario}" SelectedValuePath="Name" Style="{StaticResource configuracionComboBox}" Width="75"/>
+        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal">
+            <Button Content="Aceptar" Click="aceptarButton_Click" Style="{StaticResource configuracionButton}"/>
+            <Button Content="Cancelar" Click="cancelarButton_Click" Style="{StaticResource configuracionButton}"/>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -14,7 +14,7 @@ namespace ChatBot_DINT
     class Chats : INotifyPropertyChanged
     {
         private Persona _persona;
-        private Persona persona
+        public Persona persona
         {
             get { return this._persona; }
             set
@@ -27,7 +27,7 @@ namespace ChatBot_DINT
             }
         }
         private string _mensaje;
-        private string mensaje
+        public string mensaje
         {
             get { return this._mensaje; }
             set

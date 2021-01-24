@@ -75,7 +75,7 @@
                 <Image Source="Recursos/send.png"/>
             </Button>
             <Border>
-                <TextBox x:Name="mensajeTextBox"/>
+                <TextBox x:Name="mensajeTextBox" Text=""/>
             </Border>
         </DockPanel>
         <ItemsControl x:Name="chatListBox">
