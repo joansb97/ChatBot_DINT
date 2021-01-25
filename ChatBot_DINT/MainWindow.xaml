@@ -72,7 +72,7 @@
         </ToolBar>
         <DockPanel DockPanel.Dock="Bottom">
             <Button DockPanel.Dock="Right" Command="local:CustomCommands.enviar">
-                <Image Source="Recursos/send.png"/>
+                <Image Source="Recursos/send.png" Width="40"/>
             </Button>
             <Border>
                 <TextBox x:Name="mensajeTextBox" Text=""/>
