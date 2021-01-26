@@ -20,10 +20,10 @@ namespace ChatBot_DINT
     public partial class Configuracion : Window
     {
         List<string> sexo;
-        public string colorUsuario;
-        public string colorFondo;
-        public string colorRobot;
-        public string sexoUsuario;
+        public string colorUsuario { get; set; }
+        public string colorFondo { get; set; }
+        public string colorRobot { get; set; }
+        public string sexoUsuario { get; set; }
         public Configuracion()
         {
             InitializeComponent();

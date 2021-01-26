@@ -18,6 +18,13 @@
         <Style TargetType="Image" x:Key="toolbarImage">
             <Setter Property="Width" Value="20"/>
         </Style>
+        <Style TargetType="Image" x:Key="personaImage_Trigger">
+            <Setter Property="Width" Value="15"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="TextBlock" x:Key="personaTextBlock_Trigger">
+            
+        </Style>
     </Window.Resources>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
@@ -39,7 +46,7 @@
                 </MenuItem>
             </MenuItem>
             <MenuItem Header="_Herramientas" InputGestureText="Ctrl+H" Command="local:CustomCommands.configuracion">
-                <MenuItem Header="_Configuracion">
+                <MenuItem Header="_Configuracion" Command="local:CustomCommands.configuracion">
                     <MenuItem.Icon>
                         <Image Source="Recursos/config.ico"/>
                     </MenuItem.Icon>
@@ -72,13 +79,13 @@
         </ToolBar>
         <DockPanel DockPanel.Dock="Bottom">
             <Button DockPanel.Dock="Right" Command="local:CustomCommands.enviar">
-                <Image Source="Recursos/send.png"/>
+                <Image Source="Recursos/send.png" Width="20"/>
             </Button>
             <Border>
-                <TextBox x:Name="mensajeTextBox" Text=""/>
+                <TextBox x:Name="mensajeTextBox" Text="{Binding Path=mensaje}"/>
             </Border>
         </DockPanel>
-        <ItemsControl x:Name="chatListBox">
+        <ItemsControl x:Name="chatListBox" ItemsSource="{Binding}" Background="{Binding Source={x:Static properties:Settings.Default},Path=colorFondo}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel></StackPanel>
